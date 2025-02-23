@@ -27,4 +27,6 @@ Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/publishers', [PublisherController::class, 'index']);
 Route::get('/authors', [AuthorController::class, 'index']);
 Route::get('/books', [BookController::class, 'index']);
+Route::get('/books/{id}', [BookController::class, 'showById']);
 Route::get('/book-authors', [BookAuthorController::class, 'index']);
+Route::post('/books', [BookController::class, 'store']);
