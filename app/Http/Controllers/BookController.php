@@ -61,4 +61,31 @@ class BookController extends Controller
         ], 201);
     }
 
-}
+    // Cập nhật sản phẩm
+    public function update(Request $request, $id)
+    {
+        $product = Book::find($id);
+        if (!$product) {
+            return response()->json(['message' => 'Product not found'], 404);
+        }
+    
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'price' => 'required|numeric|min:0',
+        ]);
+    
+        $product->update([
+            'title' => $request->title,
+            'price' => $request->price,
+        ]);
+    
+        return response()->json([
+            'message' => 'Sản phẩm đã được cập nhật thành công!',
+            'product' => $product
+        ], 200);
+    }
+    
+
+   
+
+ }

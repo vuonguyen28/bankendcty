@@ -30,3 +30,4 @@ Route::get('/books', [BookController::class, 'index']);
 Route::get('/books/{id}', [BookController::class, 'showById']);
 Route::get('/book-authors', [BookAuthorController::class, 'index']);
 Route::post('/books', [BookController::class, 'store']);
+Route::put('/books/{id}', [BookController::class,'update']);
